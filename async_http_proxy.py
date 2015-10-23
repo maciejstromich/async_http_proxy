@@ -101,7 +101,6 @@ class MyHTTPProxy(aiohttp.server.ServerHttpProtocol):
             chunk = yield from remote_resp.content.read(1024)
             if not chunk:
                 break
-        #content = yield from remote_resp.content.read()
             response.write(chunk)
         # update content-length for /status purposes
         yield from response.write_eof()
