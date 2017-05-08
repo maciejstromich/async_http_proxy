@@ -1,11 +1,14 @@
 FROM python:3.5
 MAINTAINER Me
 
-ENV APP_HOME /var/app
+ENV APP_DIR /app
 
-RUN mkdir -p ${APP_HOME}
+RUN mkdir -p ${APP_DIR}
+
 WORKDIR ${APP_DIR}
+
 ADD requirements.txt .
-RUN pip install -r requirements.txt
-ADD async_http_proxy.py .
-CMD python async_http_proxy.py
+
+RUN apt-get update && \
+    apt-get -y upgrade && \
+    pip install -r requirements.txt
