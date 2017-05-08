@@ -2,3 +2,4 @@ venv
 *.pyc
 Vagrantfile
 .vagrant
+.idea
