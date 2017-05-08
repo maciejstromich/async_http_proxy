@@ -2,12 +2,22 @@
 
 Simple Asyncronous HTTP Proxy using asyncio with /status returning uptime and transfered data in bytes.
 
-## Docker
+## Building
 
 Docker container is built using python:3.5
 
 ```
-docker build -t async_http_proxy .
-docker run -e HTTP_PROXY_PORT=8080 -p 8080:8080 async_http_proxy
+docker-compose build
 ```
+
+## Running 
+To run the proxy run:
+```
+docker-compose up
+```
+
+## Stats:
+
+Simple stats are available at http://$(docker-machine ip):8080/status
+
 
